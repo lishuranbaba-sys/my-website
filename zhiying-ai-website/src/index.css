@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #020617;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tech-grid {
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(circle at center, black 45%, transparent 95%);
+  animation: gridMove 18s linear infinite;
+}
+
+.scanline {
+  background: linear-gradient(180deg, transparent 0%, rgba(34, 211, 238, 0.12) 48%, transparent 100%);
+  animation: scanMove 7s ease-in-out infinite;
+}
+
+.console-scan {
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04) 0px,
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 8px
+  );
+  animation: consoleScan 6s linear infinite;
+}
+
+.tech-float-1 {
+  animation: float1 11s ease-in-out infinite;
+}
+
+.tech-float-2 {
+  animation: float2 13s ease-in-out infinite;
+}
+
+.tech-float-3 {
+  animation: float3 16s ease-in-out infinite;
+}
+
+.particle-dot {
+  animation-name: particleFloat;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.workflow-progress {
+  animation: workflowLoad 3.6s linear infinite;
+  transform-origin: left;
+}
+
+.ai-orbit::before,
+.ai-orbit::after {
+  content: "";
+  position: absolute;
+  inset: -9px;
+  border-radius: 9999px;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  animation: orbitPulse 2.4s ease-in-out infinite;
+}
+
+.ai-orbit::after {
+  inset: -18px;
+  animation-delay: 0.45s;
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.typing-line::after {
+  content: "";
+  display: inline-block;
+  margin-left: 6px;
+  height: 1em;
+  width: 2px;
+  vertical-align: -2px;
+  background: rgb(103, 232, 249);
+  animation: caretBlink 0.9s steps(2, start) infinite;
+}
+
+@keyframes gridMove {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(42px); }
+}
+
+@keyframes scanMove {
+  0%, 100% { transform: translateY(-35%); opacity: 0.18; }
+  50% { transform: translateY(35%); opacity: 0.42; }
+}
+
+@keyframes consoleScan {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(48px); }
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(18px, -24px, 0); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-14px, 22px, 0); }
+}
+
+@keyframes float3 {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(10px, -18px, 0); }
+}
+
+@keyframes particleFloat {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.22; }
+  50% { transform: translate3d(18px, -30px, 0) scale(1.7); opacity: 0.9; }
+}
+
+@keyframes workflowLoad {
+  0% { transform: scaleX(0); opacity: 0.8; }
+  86% { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(1); opacity: 0; }
+}
+
+@keyframes orbitPulse {
+  0%, 100% { transform: scale(0.88); opacity: 0.35; }
+  50% { transform: scale(1.08); opacity: 0.85; }
+}
+
+@keyframes caretBlink {
+  0%, 45% { opacity: 1; }
+  46%, 100% { opacity: 0; }
+}
